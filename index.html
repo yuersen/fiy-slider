@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta content="telephone=no" name="format-detection">
+	<style>
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		body,html {
+			padding: 0;
+			margin: 0;
+			height: 100%;
+			width: 100%;
+		}
+		/* fiy-swiper styles */
+		.fiy-swiper-container {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+		}
+		.fiy-default-swiper-box {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			display:-webkit-flex;
+			flex-direction: row;
+		}
+		.fiy-pagination {
+			z-index: 1990;
+			position: absolute;
+			bottom: 10px;
+			height: 18px;
+			width: 100%;
+			background: transparent;
+			display: flex;
+			display:-webkit-flex;
+			align-items:center;
+			justify-content: center;
+		}
+		.fiy-pagination-vl {
+			height: 100%;
+			width: 18px;
+			right: 10px;
+			-webkit-flex-direction: column;
+			flex-direction: column;
+		}
+		.fiy-pagination .fiy-dot {
+			height: 8px;
+			width: 8px;
+			background: #000;
+			opacity: 0.2;
+			margin: 0 5px;
+			border-radius: 50%;
+		}
+		.fiy-pagination-vl .fiy-dot {
+			margin: 5px 0;
+		}
+		.fiy-pagination .fiy-dot-active {
+			opacity: 1;
+			background: #3498db;
+		}
+		.fiy-slide {
+			height: 100%;
+			width: 100%;
+			flex-shrink: 0;
+			-webkit-flex-shrink: 0;
+			z-index: 10;
+			overflow: hidden;
+		}
+		img {
+			-webkit-user-drag:none;
+		}
+		.swiper {
+			height: 100%;
+		}
+		/* fiy-swiper styles */
+		/* testing */
+		img {max-width: 100%;}
+	</style>
+</head>
+
+<body>
+	<div id="app" style="position: relative;overflow: hidden;height: 100%;width: 100%;">
+		<div id="container" style="height: 100%;">
+			<!-- direction="vl" :autoplay="true"  direction="vl" :loop="false" -->
+			<slider-wrap ref="slider" class="swiper" :loop="false" :default-slide="1" direction="vl">
+					<slider-item>
+						<img src="./img/1.jpg">
+					</slider-item>
+					<slider-item>
+						<img src="./img/2.jpg">
+					</slider-item>
+					<slider-item>
+						<img src="./img/3.jpg">
+					</slider-item>
+				</slider-wrap>
+		</div>
+	</div>
+
+	<script src="vue.min.js"></script>
+	<script src="fiy-slider-item.js"></script>
+	<script src="fiy-slider-wrap.js"></script>
+	<script>
+		window.vm = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+
+</html>
