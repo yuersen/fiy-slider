@@ -277,7 +277,6 @@ Vue.component('slider-wrap', {
 		 */
 		touchstart(e) {
 			let that = this;
-			e.preventDefault();
 			if (e.type === 'mousedown' || that.isOnly) {
 				console.log('mousedown....');
 				return;
@@ -311,7 +310,6 @@ Vue.component('slider-wrap', {
 		 */
 		touchmove(e) {
 			let that = this;
-			e.preventDefault();
 			if (e.type === 'mousemove' || that.isOnly) {
 				return;
 			}
@@ -344,7 +342,6 @@ Vue.component('slider-wrap', {
 			let that = this,
 				changedTouches = e.changedTouches,
 				curId;
-			e.preventDefault();
 			if (e.type === 'mouseup' || that.isOnly) {
 				return;
 			}
