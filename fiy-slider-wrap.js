@@ -16,7 +16,7 @@ function toArray(arraylike) {
 */
 Vue.component('slider-wrap', {
 	template: `
-		<div class="fiy-swiper-container">
+		<div class="fiy-swiper-container" @touchmove="fn">
     	<div class="fiy-default-swiper-box"
 				:style="{
 					'transform': swiperStyle.transform, 
@@ -270,6 +270,12 @@ Vue.component('slider-wrap', {
 		getBoundingClientRect() {
 			let that = this;
 			return that.swiper.getBoundingClientRect()[that.isHorizontal ? 'left' : 'top'];
+		},
+
+		fn(e) { // 阻止容器的上下滚动, 并且只有在水平方向上面滚动超过 10px 才可以阻止
+			if (this.vLock || Math.abs(this.pos.start - this.pos.move) > 10) {
+				e.preventDefault();
+			}
 		},
 
 		/**
